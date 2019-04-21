@@ -1,0 +1,159 @@
+﻿@model EcommerceUserPanel.Models.Customers
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+
+<!-- Start Banner Area -->
+<section class="banner-area organic-breadcrumb">
+    <div class="container">
+        <div class="breadcrumb-banner d-flex flex-wrap align-items-center justify-content-end">
+            <div class="col-first">
+                <h1>Register</h1>
+
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End Banner Area -->
+<!--================Checkout Area =================-->
+
+
+<section class="checkout_area section_gap">
+    <div class="container">
+        <div class="billing_details">
+            <div class="row">
+                <div class="col-lg-2">&nbsp;</div>
+                <div class="col-lg-8">
+                  
+                    <form class="row contact_form"  asp-action="Create" asp-controller="Customer">
+                        <div class="col-md-6 form-group p_star">
+                            <input type="text" class="form-control" id="first" asp-for="FirstName" placeholder="Enter First Name" required>
+
+
+                        </div>
+                        <div class="col-md-6 form-group p_star">
+                            <input type="text" class="form-control" id="last" asp-for="LastName" placeholder="Enter Last Name" required>
+
+                        </div>
+                        <div class="col-md-12 form-group p_star">
+                            <input type="text" class="form-control" id="user" asp-for="Username" placeholder="Enter User Name" required>
+
+                        </div>
+
+                        <div class="col-md-12 form-group p_star">
+                            <input type="text" class="form-control" id="email" asp-for="EmailId" placeholder="Enter EmailId" required>
+
+
+                        </div>
+                        <div class="col-md-12 form-group p_star">
+                            <select asp-for="Gender" id="Gender" class="country_select" required>
+                                <option value="">Select Gender</option>
+                                <option>Male</option>
+                                <option>Female</option>
+                            </select>
+                        </div>
+
+
+
+
+                        <div class="col-md-12 form-group p_star">
+                            <input type="text" class="form-control" id="add2" asp-for="Address" placeholder="Enter Address" required>
+
+                        </div>
+
+
+                        <div class="col-md-12 form-group p_star">
+                            @*<select class="country_select">*@
+                            <select asp-for="Country" id="Country" class="country_select" required>
+                                <option value="">Select Country</option>
+                                <option>Afghanistan</option>
+                                <option>Bhutan</option>
+                                <option>Bolivia</option>
+                                <option>Canada</option>
+                                <option>Cape Verde</option>
+                                <option>Dominica</option>
+                                <option>Dominican Republic</option>
+                                <option>East Timor</option>
+                                <option>Ecuador</option>
+                                <option>Egypt</option>
+                                <option>Ethiopia</option>
+                                <option>Finland</option>
+                                <option>France</option>
+                                <option>Greece</option>
+                                <option>Greenland</option>
+                                <option>Grenada</option>
+                                <option>Guyana</option>
+                                <option>Haiti</option>
+                                <option>Hungary</option>
+                                <option>Iceland</option>
+                                <option>India</option>
+                                <option>Indonesia</option>
+                            </select>
+                        </div>
+
+                        <div class="col-md-12 form-group">
+                            @*<select class="country_select">*@
+                            <select asp-for="State" id="State" class="country_select" required>
+                                <option value="">Select State</option>
+                                <option>Andaman and Nicobar Islands</option>
+                                <option>Andhra Pradesh</option>
+                                <option>Arunachal Pradesh</option>
+                                <option>Assam</option>
+                                <option>Bihar</option>
+                                <option>Chandigarh</option>
+                                <option>Chhattisgarh</option>
+                                <option>Dadra and Nagar Haveli</option>
+                                <option>Daman and Diu</option>
+                                <option>Delhi</option>
+                                <option>Goa</option>
+                                <option>Gujarat</option>
+                                <option>Haryana</option>
+                                <option>Himachal Pradesh</option>
+                                <option>Jammu and Kashmir</option>
+                                <option>Jharkhand</option>
+                                <option>Karnataka</option>
+                                <option>Kerala</option>
+                                <option>Lakshadweep</option>
+                                <option>Madhya Pradesh</option>
+                                <option>Maharashtra</option>
+                                <option>Manipur</option>
+                                <option>Meghalaya</option>
+                                <option>Mizoram</option>
+                                <option>Nagaland</option>
+                                <option>Orissa</option>
+                                <option>Pondicherry</option>
+                                <option>Punjab</option>
+                                <option>Rajasthan</option>
+                                <option>Sikkim</option>
+                                <option>Tamil Nadu</option>
+                                <option>Tripura</option>
+                                <option>Uttaranchal</option>
+                                <option>Uttar Pradesh</option>
+                                <option>West Bengal</option>
+                            </select>
+                            @*</select>*@
+                        </div>
+                        <div class="col-md-12 form-group">
+                            <input type="text" class="form-control" id="zip" placeholder="Enter Zip" asp-for="Zip" required>
+                        </div>
+
+                        <div class="col-md-12 form-group p_star">
+                            <input type="text" class="form-control" id="number" asp-for="PhoneNo" placeholder="Enter Phone No" required>
+
+                        </div>
+
+                        <div class="col-md-12 form-group">
+                            <input type="password" asp-for="Password" class="form-control" placeholder="Enter Password" required>
+                        </div>
+
+
+                        <button type="submit" class="primary-btn">Submit</button>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+<!--================End Checkout Area =================-->

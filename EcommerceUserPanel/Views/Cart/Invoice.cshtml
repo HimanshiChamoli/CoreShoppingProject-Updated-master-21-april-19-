@@ -1,0 +1,177 @@
+﻿
+@{
+    ViewData["Title"] = "Invoice";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+<br />
+<br /><br /><br />
+<!-- Start Banner Area -->
+<section class="banner-area organic-breadcrumb">
+    <div class="container">
+        <div class="breadcrumb-banner d-flex flex-wrap align-items-center justify-content-end">
+            <div class="col-first">
+                <h1>Invoice</h1>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End Banner Area -->
+<!--================Order Details Area =================-->
+<section class="order_details section_gap">
+    <div class="container">
+        <h3 class="title_confirmation">Thank you. Your order has been received.</h3>
+        <div class="row order_d_inner">
+            <div class="col-lg-4">
+                <div class="details_item">
+                    <h4>Order Info</h4>
+                    <ul class="list">
+                        <li><span>Order number</span> : </li>
+                        <li>
+                            <span>Date</span> :
+                            <script>
+                                document.getElementById("date").innerHTML = Date();
+                            </script>
+                        </li>
+                        <li><span>Total</span> : @ViewBag.total</li>
+
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="details_item">
+                    <h4>Billing Address</h4>
+                    <ul class="list">
+                        <li><span>Name </span> :   @ViewBag.Customers.FirstName&nbsp;&nbsp;@ViewBag.Customers.LastName<br></li>
+                        <li><span>Street</span> : @ViewBag.Customers.Address</li>
+                        <li><span>State</span> :  @ViewBag.Customers.State</li>
+                        <li><span>Country</span> : @ViewBag.Customers.Country</li>
+                        <li><span>Zip </span> :@ViewBag.Customers.Zip</li>
+                    </ul>
+
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="details_item">
+                    <h4>Shipping Address</h4>
+                    <ul class="list">
+                        <li><span>Name </span> :   @ViewBag.Customers.FirstName&nbsp;&nbsp;@ViewBag.Customers.LastName<br></li>
+                        <li><span>Street</span> : @ViewBag.Customers.Address</li>
+                        <li><span>State</span> :  @ViewBag.Customers.State</li>
+                        <li><span>Country</span> : @ViewBag.Customers.Country</li>
+                        <li><span>Zip </span> :@ViewBag.Customers.Zip</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="order_details_table">
+            <h2>Order Details</h2>
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">Product</th>
+                            <th scope="col">Quantity</th>
+                            <th scope="col">Total</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in ViewBag.cart)
+                        {
+
+                            <tr>
+                                <td>
+                                    <p>@item.Products.ProductName</p>
+                                </td>
+                                <td>
+                                    <h5>@item.Quantity</h5>
+                                </td>
+                                <td>
+                                    <p>@item.Products.ProductPrice</p>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    <h4>Subtotal</h4>
+                                </td>
+                                <td>
+                                    <h5></h5>
+                                </td>
+                                <td>
+                                    <p>@(item.Products.ProductPrice * item.Quantity)</p>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    <h4>Total</h4>
+                                </td>
+                                <td>
+                                    <h5></h5>
+                                </td>
+                                <td>
+                                    <p>@ViewBag.total</p>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+                <a asp-controller="Home" asp-action="Index" class="btn btn-sm btn-outline-success">Back to List</a>
+            </div>
+        </div>
+    </div>
+</section>
+<!--================End Order Details Area =================-->
+<!------ Include the above in your HEAD tag ---------->
+@*<div class="container">
+
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title"><strong>Order summary</strong></h3>
+                </div>
+                <div class="panel-body">
+                    <div class="table-responsive">
+                        <table class="table table-condensed">
+                            <thead>
+                                <tr>
+                                    <td><strong>Item</strong></td>
+                                    <td class="text-center"><strong>Price</strong></td>
+                                    <td class="text-center"><strong>Quantity</strong></td>
+                                    <td class="text-right"><strong>Sub Total</strong></td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in ViewBag.cart)
+                                {
+                                    <tr>
+                                        @*<td>@ViewBag.Payments.PaymentId</td>*@
+@*<td>@item.Products.ProductName</td>
+                                            <td class="text-center">@item.Products.ProductPrice</td>
+                                            <td class="text-center">@item.Quantity</td>
+                                            <td class="text-right">@(item.Products.ProductPrice * item.Quantity)</td>
+                                        </tr>
+                                    }
+
+
+                                    <tr>
+                                        <td class="no-line"></td>
+                                        <td class="no-line"></td>
+                                        <td class="no-line text-center"><strong>Total</strong></td>
+                                        <td class="no-line text-right">@ViewBag.total</td>
+                                    </tr>
+
+
+                                </tbody>
+                            </table>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <a asp-controller="Cart" asp-action="Index" class="btn btn-sm btn-outline-success">Back to List</a>*@
