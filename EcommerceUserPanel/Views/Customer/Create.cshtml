@@ -26,7 +26,7 @@
                 <div class="col-lg-2">&nbsp;</div>
                 <div class="col-lg-8">
                   
-                    <form class="row contact_form"  asp-action="Create" asp-controller="Customer">
+                    <form class="row contact_form" asp-action="Create" asp-controller="Customer">
                         <div class="col-md-6 form-group p_star">
                             <input type="text" class="form-control" id="first" asp-for="FirstName" placeholder="Enter First Name" required>
 
@@ -133,6 +133,9 @@
                                 <option>West Bengal</option>
                             </select>
                             @*</select>*@
+                        </div>
+                        <div class="col-md-12 form-group">
+                            <input type="text" class="form-control" id="shippingaddress" placeholder=" Shipping address" asp-for="ShippingAddress" required>
                         </div>
                         <div class="col-md-12 form-group">
                             <input type="text" class="form-control" id="zip" placeholder="Enter Zip" asp-for="Zip" required>
