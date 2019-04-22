@@ -185,11 +185,22 @@
                                 <div class="btn-group">
                                     @*<button type="button" class="btn btn-sm btn-outline-secondary">View Details</button>*@
                                     @*<button type="button" class="btn btn-sm btn-outline-secondary">Add to Cart</button>*@
-                                    <a asp-controller="Cart" asp-action="Buy" asp-route-id="@item.ProductId" onclick="alert('Added To cart')" class="btn btn-sm btn-outline-secondary"> Add to Cart </a>&nbsp;&nbsp;&nbsp;
+                                    @if (item.ProductQty < 1)
+                                    {
+                                        <a class="btn btn-sm btn-outline-secondary"> Add to Cart </a>@:&nbsp; &nbsp; &nbsp;
 
-                                    <a asp-controller="Cart" asp-action="Details" asp-route-id="@item.ProductId" class="btn btn-sm btn-outline-secondary"> View Details</a>
+                                        <a asp-controller="Cart" asp-action="OutofStock" asp-route-id="@item.ProductId" class="btn btn-sm btn-outline-secondary"> View Details</a>}
+
+                                    else
+                                    {<a asp-controller="Cart" asp-action="Buy" asp-route-id="@item.ProductId" onclick="alert('Added To cart')" class="btn btn-sm btn-outline-secondary"> Add to Cart </a> @:&nbsp; &nbsp; &nbsp;
+
+                                    <a asp-controller="Cart" asp-action="details" asp-route-id="@item.ProductId" class="btn btn-sm btn-outline-secondary"> View Details</a>}
                                 </div>
-                                <h6 class="text-muted">@item.ProductQty Left</h6>
+                                @if (item.ProductQty < 1)
+                                {<font size="5" color="red">OutOfStock</font>}
+                                else
+                                {
+                                    <font size="5" color="lightgrey">@item.ProductQty Left</font>}
                             </div>
                         </div>
                     </div>

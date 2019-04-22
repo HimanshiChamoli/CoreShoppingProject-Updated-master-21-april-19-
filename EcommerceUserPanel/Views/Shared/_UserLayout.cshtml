@@ -65,15 +65,15 @@
                             </li>
 
                             <li class="nav-item"><a class="nav-link" asp-controller="Home" asp-action="Contact">Contact</a></li>
-                            @if (Context.Session.GetString("logout") == null)
+                            @if (Context.Session.GetString("Logout") == null)
                             {
-                                <li class="nav-item"><a class="nav-link" asp-action="Login" asp-controller="Customers">Login</a></li>
+                                <li class="nav-item"><a class="nav-link" asp-action="Login" asp-controller="Customer">Login</a></li>
                                 @*<a class="btn btn-secondary" asp-action="Login" asp-controller="Customers">Login</a>*@
                             }
                             else
                             {
-                                <li class="nav-item"><a class="nav-link" asp-action="Details" asp-controller="Customers">Dashboard</a></li>
-                                <li class="nav-item"><a class="nav-link" asp-action="logout" asp-controller="Customers">Logout</a></li>
+                                <li class="nav-item"><a class="nav-link" asp-action="Profile" asp-controller="Customer">Dashboard</a></li>
+                                <li class="nav-item"><a class="nav-link" asp-action="logout" asp-controller="Customer">Logout</a></li>
 
                             }
                         </ul>

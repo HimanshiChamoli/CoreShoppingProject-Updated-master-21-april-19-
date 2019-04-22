@@ -84,6 +84,10 @@ namespace EcommerceUserPanel.Controllers
             context.SaveChanges();
             return RedirectToAction("Index");
         }
+        public IActionResult Contact()
+        {
+            return View();
+        }
         
 
     }

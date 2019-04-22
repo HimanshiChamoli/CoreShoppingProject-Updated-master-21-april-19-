@@ -100,7 +100,7 @@ namespace EcommerceUserPanel.Controllers
                     HttpContext.Session.SetString("uname", userName);
                     SessionHelper.SetObjectAsJson(HttpContext.Session, "cust", user);
                     HttpContext.Session.SetString("Logout", userName);
-                    return RedirectToAction("Index", "Home", new { @id = custId });
+                    return RedirectToAction("Checkout", "Cart", new { @id = custId });
                 }
                 else
                 {

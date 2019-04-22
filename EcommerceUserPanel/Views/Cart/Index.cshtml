@@ -38,30 +38,30 @@
                         {
                             <tr>
                                 <td>
-                                    <a asp-controller="Cart" asp-action="Remove" asp-route-id="@item.Products.ProductId">Remove</a>
+<a asp-controller="Cart" asp-action="Remove" asp-route-id="@item.products.ProductId">Remove</a>
                                 </td>
                                 <td>
                                    
                                     <div class="media">
                                         <div class="d-flex">
-                                            <img src="@item.Products.ProductImage" width="100" height="100" alt="">
+                                            <img src="@item.products.ProductImage" width="100" height="100" alt="">
                                         </div>
                                     </div>
                                 <td>
-                                    <p>@item.Products.ProductName</p>
+                                    <p>@item.products.ProductName</p>
                                 </td>
 
                                 <td>
-                                    <h5>@item.Products.ProductPrice</h5>
+                                    <h5>@item.products.ProductPrice</h5>
                                 </td>
 
                                 <td>
-                                    <a class="btn btn-default" asp-controller="cart" asp-action="Minus" asp-route-id="@item.Products.ProductId">-</a>@item.Quantity
-                                    <a class="btn btn-default" asp-controller="cart" asp-action="Plus" asp-route-id="@item.Products.ProductId">+</a>
+                                    <a class="btn btn-default" asp-controller="cart" asp-action="Minus" asp-route-id="@item.products.ProductId">-</a>@item.Quantity
+                                    <a class="btn btn-default" asp-controller="cart" asp-action="Plus" asp-route-id="@item.products.ProductId">+</a>
                                 </td>
 
                                 <td>
-                                    <h5>@(item.Products.ProductPrice * item.Quantity)</h5>
+                                    <h5>@(item.products.ProductPrice * item.Quantity)</h5>
                                 </td>
                             </tr>
                         }
@@ -87,7 +87,7 @@
                                     @*<a class="primary-btn" href="#">Proceed to checkout</a>*@
                                     @if (Context.Session.GetString("logout") == null)
                                     {
-                                        <a class="primary-btn" asp-controller="Customer" asp-action="Login">Proceed to Checkout</a>
+                                        <a class="primary-btn" asp-controller="Customer" asp-action="Login1">Proceed to Checkout</a>
                                     }
                                     else
                                     {

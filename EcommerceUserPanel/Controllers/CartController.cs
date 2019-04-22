@@ -23,15 +23,15 @@ namespace EcommerceUserPanel.Controllers
         [Route("index")]
         public IActionResult Index()
         {
-            ;
+            
             var cart = SessionHelper.GetObjectFromJson<List<Item>>(HttpContext.Session, "cart");
-            foreach(var it in cart)
-            {
-                if(it.Quantity==it.products.ProductQty)
-                {
-                    ViewBag.j = it.products.ProductId;
-                }
-            }
+            //foreach(var it in cart)
+            //{
+            //    if(it.Quantity==it.products.ProductQty)
+            //    {
+            //        ViewBag.j = it.products.ProductId;
+            //    }
+            //}
             int i = 0;
             if (cart != null)
             {
@@ -161,6 +161,7 @@ namespace EcommerceUserPanel.Controllers
             _context.Add<Payments>(payment);
             _context.Payments.Add(payment);
             _context.SaveChanges();
+            TempData["pay"] = payment.PaymentId;
             return RedirectToAction("Invoice");
             }
         public IActionResult PaymentIndex()
@@ -269,9 +270,14 @@ namespace EcommerceUserPanel.Controllers
         public IActionResult Invoice()
         {
             int custId = int.Parse(TempData["cust"].ToString());
+            int paymentid = int.Parse(TempData["pay"].ToString());
+            int ordrid = int.Parse(TempData["orderId"].ToString());
             Customers customers = _context.Customers.Where(x => x.CustomerId == custId).SingleOrDefault();
             ViewBag.Cust = customers;
-
+            Payments payment = _context.Payments.Where(x => x.PaymentId == paymentid).SingleOrDefault();
+            ViewBag.Paymnt = payment;
+            Orders ord = _context.Orders.Where(x => x.OrderId == ordrid).SingleOrDefault();
+            ViewBag.Od = ord;
 
             var cart = SessionHelper.GetObjectFromJson<List<Item>>(HttpContext.Session, "cart");
             ViewBag.cart = cart;

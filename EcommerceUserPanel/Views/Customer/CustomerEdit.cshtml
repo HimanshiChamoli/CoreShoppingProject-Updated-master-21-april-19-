@@ -30,7 +30,7 @@
                 <ul class="main-categories">
                     <li class="main-nav-list">
                         <a data-toggle="collapse" href="#fruitsVegetable" aria-expanded="false" aria-controls="fruitsVegetable">
-                            <span class="lnr lnr-arrow-right"></span> <a class="nav-link" asp-controller="customer" asp-action="Details">My Profile</a>
+                            <span class="lnr lnr-arrow-right"></span> <a class="nav-link" asp-controller="customer" asp-action="Profile">My Profile</a>
                         </a>
                     </li>
                     <li class="main-nav-list">
@@ -50,7 +50,7 @@
                     </li>
                     <li class="main-nav-list">
                         <a data-toggle="collapse" href="#homeClean" aria-expanded="false" aria-controls="homeClean">
-                            <span class="lnr lnr-arrow-right"></span> <a class="nav-link" asp-controller="customer" asp-action="Feedback">Feedback</a>
+                            <span class="lnr lnr-arrow-right"></span> <a class="nav-link" asp-controller="Home" asp-action="Feedback">Feedback</a>
                         </a>
                     </li>
                     <br />
@@ -64,7 +64,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12-details im1">
-                <form asp-action="custEdit" asp-controller="Customers">
+                <form asp-action="customerEdit" asp-controller="Customer">
                     <div class="form-group row">
                         <input type="hidden" asp-for="CustomerId" />
                         <br />
@@ -121,7 +121,7 @@
                     </div>
                     <center>
                         <input type="submit" value="Edit" class="btn btn-success" />&nbsp;
-                        <button class="btn btn-success" asp-controller="Home" asp-action="About">
+                        <button class="btn btn-success" asp-controller="Home" asp-action="Index">
                             Back
                         </button>
                     </center>
