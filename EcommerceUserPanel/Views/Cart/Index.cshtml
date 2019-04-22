@@ -85,7 +85,7 @@
                                 <div class="checkout_btn_inner d-flex align-items-center">
                                     <a asp-controller="Home" asp-action="Index" class="gray_btn">Continue Shopping</a>&nbsp;
                                     @*<a class="primary-btn" href="#">Proceed to checkout</a>*@
-                                    @if (Context.Session.GetString("logout") == null)
+                                    @if (Context.Session.GetString("Logout") == null)
                                     {
                                         <a class="primary-btn" asp-controller="Customer" asp-action="Login1">Proceed to Checkout</a>
                                     }

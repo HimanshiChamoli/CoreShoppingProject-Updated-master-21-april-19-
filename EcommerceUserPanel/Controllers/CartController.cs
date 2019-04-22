@@ -335,6 +335,25 @@ namespace EcommerceUserPanel.Controllers
             SessionHelper.SetObjectAsJson(HttpContext.Session, "cart", cart);
             return RedirectToAction("Index");
         }
+        [Route("search")]
+        [HttpGet]
+        public IActionResult Search(string search)
+
+        {
+
+            if (search == null)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+
+            HttpContext.Session.SetString("Search", search.ToString());
+
+            ViewBag.prodt = _context.Products.Where(x => x.ProductName == search || x.ProductDescription == search || search == null).ToList();
+            return View();
+
+
+        }
+
     }
 }   
        

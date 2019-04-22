@@ -40,9 +40,9 @@
                 <div class="details_item">
                     <h4>Billing </h4>
                     <ul class="list">
-                        <li><span>Name </span> :   @ViewBag.Customers.FirstName&nbsp;&nbsp;@ViewBag.Customers.LastName<br></li>
-                        <li><span>Street</span> : @ViewBag.Customers.Address</li>
-                        <li><span>State</span> :  @ViewBag.Customers.PhoneNo</li>
+                        <li><span>Name </span> :   @ViewBag.Cust.FirstName&nbsp;&nbsp;@ViewBag.Cust.LastName<br></li>
+                        <li><span>Address</span> : @ViewBag.Cust.Address</li>
+                        <li><span>PhoneNo</span> :  @ViewBag.Cust.PhoneNo</li>
 
 
                     </ul>
@@ -52,11 +52,11 @@
                 <div class="details_item">
                     <h4>Shipping Address</h4>
                     <ul class="list">
-                        <li><span>Name </span> :   @ViewBag.Customers.FirstName&nbsp;&nbsp;@ViewBag.Customers.LastName<br></li>
-                        <li><span>Street</span> : @ViewBag.Customers.Address</li>
-                        <li><span>State</span> :  @ViewBag.Customers.State</li>
-                        <li><span>Country</span> : @ViewBag.Customers.Country</li>
-                        <li><span>Zip </span> :@ViewBag.Customers.Zip</li>
+                        <li><span>Name </span> :   @ViewBag.Cust.FirstName&nbsp;&nbsp;@ViewBag.Cust.LastName<br></li>
+                        <li><span>Street</span> : @ViewBag.Cust.Address</li>
+                        <li><span>State</span> :  @ViewBag.Cust.State</li>
+                        <li><span>Country</span> : @ViewBag.Cust.Country</li>
+                        <li><span>Zip </span> :@ViewBag.Cust.Zip</li>
                     </ul>
                 </div>
             </div>
@@ -78,13 +78,13 @@
 
                             <tr>
                                 <td>
-                                    <p>@item.Products.ProductName</p>
+                                    <p>@item.products.ProductName</p>
                                 </td>
                                 <td>
                                     <h5>@item.Quantity</h5>
                                 </td>
                                 <td>
-                                    <p>@item.Products.ProductPrice</p>
+                                    <p>@item.products.ProductPrice</p>
                                 </td>
                             </tr>
 
@@ -96,7 +96,7 @@
                                     <h5></h5>
                                 </td>
                                 <td>
-                                    <p>@(item.Products.ProductPrice * item.Quantity)</p>
+                                    <p>@(item.products.ProductPrice * item.Quantity)</p>
                                 </td>
                             </tr>
 

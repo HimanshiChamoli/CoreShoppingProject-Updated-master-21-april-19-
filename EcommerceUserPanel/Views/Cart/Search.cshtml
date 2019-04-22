@@ -1,0 +1,71 @@
+﻿@model EcommerceUserPanel.Models.Products
+@{
+    ViewData["Title"] = "Search";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+
+
+<!-- Start Banner Area -->
+<section class="banner-area organic-breadcrumb">
+    <div class="container">
+        <div class="breadcrumb-banner d-flex flex-wrap align-items-center justify-content-end">
+            <div class="col-first">
+                <h1>Product Display</h1>
+
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End Banner Area -->
+&nbsp;&nbsp;
+<!--================Single Product Area =================-->
+
+<div class="album py-5 bg-light">
+    <div class="container">
+        <div class="row">
+            @foreach (var item in ViewBag.prodt)
+            {
+                @*Thumbnail Start*@
+
+                <div class="col-md-4">
+                    <div class="card mb-4 shadow-sm">
+                        <img src="@item.ProductImage" class="bd-placeholder-img card-img-top" height="400" width="200" />
+                        <div class="card-body">
+                            <p class="card-text" style="font-weight:bold;">@item.ProductName</p>
+                            <p class="card-text" style="font-weight:bold;">@item.ProductDescription</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="btn-group">
+                                    @*<button type="button" class="btn btn-sm btn-outline-secondary">View Details</button>*@
+                                    @*<button type="button" class="btn btn-sm btn-outline-secondary">Add to Cart</button>*@
+                                    @if (item.ProductQty < 1)
+                                    {
+                                        <a class="btn btn-sm btn-outline-secondary"> Add to Cart </a>@:&nbsp;&nbsp;&nbsp;
+
+                                        <a asp-controller="Cart" asp-action="OutofStock" asp-route-id="@item.ProductId" class="btn btn-sm btn-outline-secondary"> View Details</a>}
+
+                                    else
+                                    {
+                                        <a asp-controller="Cart" asp-action="Buy" asp-route-id="@item.ProductId" onclick="alert('Added To cart')" class="btn btn-sm btn-outline-secondary"> Add to Cart </a> @:&nbsp;&nbsp;&nbsp;
+
+                                        <a asp-controller="Cart" asp-action="details" asp-route-id="@item.ProductId" class="btn btn-sm btn-outline-secondary"> View Details</a>}
+                                </div>
+                                @if (item.ProductQty < 1)
+                                {<font size="5" color="red">OutOfStock</font>}
+                                else
+                                {
+                                    <font size="5" color="lightgrey">@item.ProductQty Left</font>}
+
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+            }
+        </div>
+    </div>
+</div>
+<!--================End Single Product Area =================-->
+&nbsp;&nbsp;
+
